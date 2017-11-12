@@ -5,6 +5,7 @@ function select_data = feature_selection(data, vocabulary)
     vocabulary(:,idx) = [];
     data(:,idx) = [];
     
+    
     %% stemmer
     feature = strings(1,size(vocabulary,2));
     for i = 1:size(vocabulary,2)
