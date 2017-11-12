@@ -13,5 +13,7 @@ function select_data = feature_selection(data, vocabulary)
         temp = sum(data(:,index),2);
         select_data(:,ic(index(1))) = temp;
     end
+    %% remove the words which appears no more than once
+    select_data(:,find(sum(select_data,1)<=1)) = [];
 end
 
