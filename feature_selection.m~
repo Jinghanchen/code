@@ -15,12 +15,8 @@ function select_data = feature_selection(data, vocabulary)
     end
     %% remove the words which appears no more than once
     select_data(:,find(sum(select_data,1)<=1)) = [];
-end
-%% 
-num = regexp(vocabulary,'\d');
-count = 0;
-for i = 1:9999
-    if ~isempty(num{:,i})
-        count=count+1;
-    end
+    %% remove digits from vocabulary
+    num = regexp(feature,'\d');
+    idx = find(~cellfun('isempty',num));
+    select_data(:,idx) = [];
 end
